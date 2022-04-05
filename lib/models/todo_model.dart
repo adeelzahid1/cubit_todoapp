@@ -18,3 +18,5 @@ class Todo {
   @override
   String toString() => 'Todo(id: $id, desc: $desc, compeleted: $compeleted)';
 }
+
+enum Filter{all, active, completed,}
