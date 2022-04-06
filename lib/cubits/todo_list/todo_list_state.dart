@@ -1,6 +1,6 @@
 part of 'todo_list_cubit.dart';
 
-class TodoListState extends Equatable {
+class TodoListState {
   final List<Todo> todos;
   TodoListState({
     required this.todos,

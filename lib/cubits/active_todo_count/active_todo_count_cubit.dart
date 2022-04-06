@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
 
 import '../../models/todo_model.dart';
 import '../todo_list/todo_list_cubit.dart';

@@ -1,6 +1,6 @@
 part of 'todo_filter_cubit.dart';
 
-class TodoFilterState extends Equatable {
+class TodoFilterState {
   final Filter filter;
   TodoFilterState({
     required this.filter,

@@ -1,6 +1,6 @@
 part of 'todo_search_cubit.dart';
 
-class TodoSearchState extends Equatable {
+class TodoSearchState {
   final String searchTerm;
   TodoSearchState({
     required this.searchTerm,
