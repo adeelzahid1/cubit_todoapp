@@ -18,11 +18,13 @@ class FilterTodosCubit extends Cubit<FilterTodosState> {
   final TodoFilterCubit todoFilterCubit;
   final TodoSearchCubit todoSearchCubit;
   final TodoListCubit todoListCubit;
+  final List<Todo> initialTodos;
 
   FilterTodosCubit({
     required this.todoFilterCubit,
     required this.todoSearchCubit,
     required this.todoListCubit,
+    required this.initialTodos,
     }) : super(FilterTodosState.initial()){
 
       todoFilterSubscription = todoFilterCubit.stream.listen((TodoFilterState todoFilterState) { setFilterTodos(); });
@@ -34,10 +36,10 @@ class FilterTodosCubit extends Cubit<FilterTodosState> {
       List<Todo> _filterTodos;
       switch(todoFilterCubit.state.filter){
         case Filter.active:
-          _filterTodos = todoListCubit.state.todos.where((Todo todo) => !todo.compeleted).toList();
+          _filterTodos = todoListCubit.state.todos.where((Todo todo) => !todo.completed).toList();
           break;
         case Filter.completed:
-          _filterTodos = todoListCubit.state.todos.where((Todo todo) => todo.compeleted).toList();
+          _filterTodos = todoListCubit.state.todos.where((Todo todo) => todo.completed).toList();
           break;
         case Filter.all:
           _filterTodos = todoListCubit.state.todos;
@@ -53,13 +55,13 @@ class FilterTodosCubit extends Cubit<FilterTodosState> {
 
     emit(state.copyWith(filteredTodos: _filterTodos));
 
+    }
       @override
       Future<void> close() {
         todoFilterSubscription.cancel();
         todoSearchSubscription.cancel();
         todoListSubscription.cancel();
         return super.close();
-    }
   }
 
 }

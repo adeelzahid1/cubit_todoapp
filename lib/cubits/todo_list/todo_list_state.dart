@@ -2,24 +2,23 @@ part of 'todo_list_cubit.dart';
 
 class TodoListState extends Equatable {
   final List<Todo> todos;
-  
   TodoListState({
     required this.todos,
   });
 
-  factory TodoListState.initial(){
+  factory TodoListState.initial() {
     return TodoListState(todos: [
-      Todo(id: '1', desc: 'Item Item 1', ),
-      Todo(id: '2', desc: 'Item Item 2', compeleted: true),
-      Todo(id: '3', desc: 'Item Item 3'),
+      Todo(id: '1', desc: 'Clean the room'),
+      Todo(id: '2', desc: 'Wash the dish'),
+      Todo(id: '3', desc: 'Do homework'),
     ]);
   }
-
 
   @override
   List<Object> get props => [todos];
 
-  
+  @override
+  String toString() => 'TodoListState(todos: $todos)';
 
   TodoListState copyWith({
     List<Todo>? todos,
@@ -28,9 +27,4 @@ class TodoListState extends Equatable {
       todos: todos ?? this.todos,
     );
   }
-
-  @override
-  String toString() => 'TodoListState(todos: $todos)';
 }
-
-
