@@ -9,7 +9,7 @@ class ShowTodos extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final todos = context.watch<FilterTodosCubit>().state.filteredTodos;
+    final todos = context.watch<FilteredTodosCubit>().state.filteredTodos;
 
     return ListView.separated(
       primary: false,

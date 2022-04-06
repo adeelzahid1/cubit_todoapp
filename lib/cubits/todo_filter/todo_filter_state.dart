@@ -1,11 +1,12 @@
 part of 'todo_filter_cubit.dart';
 
-class TodoFilterState extends Equatable{
-   final Filter filter;
+class TodoFilterState extends Equatable {
+  final Filter filter;
+  TodoFilterState({
+    required this.filter,
+  });
 
-  const TodoFilterState({required this.filter});
-
-  factory TodoFilterState.initial(){
+  factory TodoFilterState.initial() {
     return TodoFilterState(filter: Filter.all);
   }
 
@@ -23,5 +24,3 @@ class TodoFilterState extends Equatable{
     );
   }
 }
-
-
